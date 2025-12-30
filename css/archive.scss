@@ -1,0 +1,120 @@
+$white: #fafafa;
+$off-white: #aaaaaa;
+$primary-grey: #0a0a0a;
+$light-grey: #505050;
+$dark-grey: #1a1a1a;
+$red: #ed1c24;
+
+.arc-section {
+    width: 100vw;
+    height: fit-content;
+    align-items: center;
+    margin-top: 3vw;
+    padding: 3vw 5vw;
+}
+
+
+/* Container */
+.table-gallery {
+    margin: 0 auto;
+}
+
+/* Table-like row */
+.project-row {
+    border-bottom: 1px solid $white;
+}
+
+/* Header row */
+.project-header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    padding: 18px 0;
+    cursor: pointer;
+
+    &.active .arrow {
+        transform: rotate(-135deg);
+    }
+}
+
+.project-title {
+    &:hover {
+        color: $red;
+
+        & ~ .arrow {
+            border-right: 1.5px solid $red;
+            border-bottom: 1.5px solid $red;
+        }
+    }
+}
+
+/* Arrow (very subtle) */
+.arrow {
+    width: clamp(10px, 1vw, 15px);
+    height: clamp(10px, 1vw, 15px);
+    border-right: 1.5px solid $white;
+    border-bottom: 1.5px solid $white;
+    transform: rotate(45deg);
+}
+
+/* Expandable content */
+.project-content {
+    max-height: 0;
+    overflow: hidden;
+
+    transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+
+    &.open { max-height: 2000px; }
+}
+
+/* Description */
+.project-description {
+    margin: 2vh 0 5vh 0;
+}
+
+/* Gallery */
+.project-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    padding-bottom: 25px;
+}
+
+.gallery-item {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    border-radius: 15px;
+    overflow: hidden;     // 🔑 THIS is the containment
+
+        img {
+        width: 100%;
+        height: 100%;
+        border-radius: 15px;
+        object-fit: cover;
+        aspect-ratio: 3 / 2;
+
+            &:hover { transform: scale(1.1); }
+        }
+}
+
+
+
+    // Mobile
+    @media only screen 
+    and (max-width: 450px) {
+        .arc-section {
+            margin-top: 15vw;
+        }
+        .project-content {
+            &.open {
+                max-height: unset;
+            }
+        }
+        .project-gallery {
+            grid-template-columns: repeat(1,1fr);
+        }
+    }

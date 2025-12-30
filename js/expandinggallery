@@ -1,0 +1,11 @@
+const projectRows = document.querySelectorAll('.project-row');
+
+projectRows.forEach(row => {
+    const header = row.querySelector('.project-header');
+    const content = row.querySelector('.project-content');
+
+    header.addEventListener('click', () => {
+        header.classList.toggle('active');
+        content.classList.toggle('open');
+    });
+});

@@ -1,0 +1,312 @@
+// Font - Archivo
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@125,100;125,600&display=swap');
+// Font - Inter
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400&display=swap');
+
+$white: #fafafa;
+$off-white: #aaaaaa;
+$primary-grey: #0a0a0a;
+$light-grey: #505050;
+$dark-grey: #1a1a1a;
+$red: #ed1c24;
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+html {
+    background-color: $primary-grey;
+	scroll-behavior: smooth;
+	transition: all 1s ease;
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+
+    scrollbar-width: none; /* Firefox */
+
+    /* Chrome Safari */
+    ::-webkit-scrollbar {
+        display: none;
+    } 
+}
+
+body {
+    margin: 0;
+    width: 100%;
+    font-family: 'Archivo', serif;
+    color: $white;
+    max-width: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    cursor: url(../img/cursor.png) 3 3, auto;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+}
+
+    // Mobile
+    @media only screen 
+    and (max-width: 450px) {
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+            position: relative;
+        }
+    }
+
+h1 {
+    font-family: "Archivo", serif;
+    font-size: clamp(40px, 6.5vw, 150px);
+    line-height: 1em;
+}
+
+h2 {
+    font-family: 'Archivo', serif;
+    font-size: clamp(26px, 4vw, 73px);
+    line-height: 1em;
+    font-weight: 600;
+}
+
+h3 {
+    font-family: 'Archivo', serif;
+    font-size: clamp(20px, 2vw, 37px);
+    line-height: 1em;
+}
+
+h4 {
+    font-family: 'Archivo', serif;
+    font-size: clamp(16px, 1.5vw, 24px);
+    line-height: 1em;
+}
+
+h5 {
+    font-family: 'Archivo', serif;
+    font-style: italic;
+    font-size: clamp(24px, 2.5vw, 34px);
+    line-height: 1em;
+}
+
+h6 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 200;
+    font-size: clamp(16px, 1.5vw, 24px);
+    line-height: 1.2em;
+
+    &:first-letter {
+        text-transform: uppercase;
+    }
+}
+
+p {
+    font-family: 'Inter', sans-serif;
+    font-weight: 200;
+    font-size: clamp(12px, 0.88em, 16px);
+    line-height: 1.4em;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover {
+        cursor: crosshair;
+        color: $red;
+    }
+
+    &:hover svg {
+        fill: $red;
+    }
+}
+
+li {
+    list-style: none;
+}
+
+.arrow-svg {    
+    svg {
+        max-width: 100%;
+        fill: #fff;
+    }
+
+    &.cntct{
+        width: clamp(20px, 3vw, 50px);
+    }
+
+    &.dwn {
+        width: clamp(18px, 1.2vw, 37px);
+        margin-right: 1.2em;
+
+        svg {
+            fill: none;
+            stroke: #fff;
+            stroke-width: 1em;
+        }
+    }
+}
+
+// CURSOR
+.cursor-text {
+    position: fixed;
+    top: 0;
+    left: 0;
+    color: transparent;
+    font-size: 10px;
+    font-weight: 300;
+    color: $white;
+    z-index: 10000;
+
+    p {
+        text-transform: uppercase;
+        display: inline;
+    }
+}
+
+    // Mobile
+    @media only screen 
+    and (max-width: 450px) {
+        .cursor-text {
+            display: none;
+        }
+    }
+
+// NAV
+header {
+    position: fixed;
+    z-index: 9999;
+    text-transform: uppercase;
+    top: 0;
+    width: 100vw;
+    height: 40px;
+    border-bottom: 0.25px solid $white;
+    background-color: $primary-grey;
+    display: grid;
+    align-items: center;
+}
+
+.navBar {
+    display: inline-block;
+    margin: auto 20px;
+    // border: 1px solid red;
+
+    &.right {
+        float: right;
+    }
+
+    li {
+        display: inline-block;
+
+        &:not(:last-child) {
+            margin-right: 10px;
+        }
+
+        &.active {
+            color: $red;
+        }
+
+        &:hover {
+            color: $red;
+        }
+    }
+}
+
+    // Mobile
+    @media only screen 
+    and (max-width: 450px) {
+        header {
+            height: 40px;
+        }
+        
+        .navBar {
+            margin: auto 10px;
+
+            h4 {
+                font-size: 3vw;
+            }
+
+            li {        
+                &:not(:last-child) {
+                    margin-right: 3px;
+                }
+            }
+        }
+    }
+
+// BACK TO TOP
+.backtotop {
+    opacity: 0.4;
+    text-align: center;
+    text-transform: uppercase;
+    width: 100vw;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10vw auto 40px auto;
+    z-index: 3;
+
+    &.projects {
+        margin-top: 5vw;
+    }
+
+    &:hover {
+        opacity: 1;
+        color: $red;
+    }
+
+    &::after {
+        content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 592.419 665.207"><polygon points="0,296.209 0,410.19 261.542,148.648 261.542,665.207 330.877,665.207 330.876,148.648 592.419,410.19 592.418,296.209 296.209,0" fill="white"></polygon></svg>');
+        width: clamp(10px, 1vw, 16px);
+    }
+
+
+    &:hover::after {
+        content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 592.419 665.207"><polygon points="0,296.209 0,410.19 261.542,148.648 261.542,665.207 330.877,665.207 330.876,148.648 592.419,410.19 592.418,296.209 296.209,0" fill="red"></polygon></svg>');
+    }
+}
+
+    // Mobile
+    @media only screen 
+    and (max-width: 450px) {
+        .backtotop {
+            h4 { font-size: 3vw; }
+
+            &.projects {
+                margin-bottom: 60px;
+            }
+        }
+    }
+
+
+// FOOTER
+footer {
+    bottom: 0;
+    z-index: 9999;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    width: 100vw;
+    border-top: 0.5px solid $light-grey;
+    background-color: $primary-grey;
+    display: flex;
+}
+
+.footerBar {
+    opacity: 0.4;
+    font-size: clamp(10px, 3vw, 14px);
+}
+
+    // Mobile
+    @media only screen 
+    and (max-width: 450px) {
+        footer {
+            padding: 5px 10px;
+        }
+
+        .footerBar {
+            line-height: 1.2em;
+            span {
+                display: block;
+            }
+        }
+    }
